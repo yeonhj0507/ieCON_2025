@@ -9,8 +9,8 @@ submission_guidelines: templates/submission_guidelines.html
 evaluation_script: evaluation_script.zip     # zip 안에 main.py
 remote_evaluation: false
 
-start_date: 2025-06-30 20:00:00
-end_date:   2025-08-26 23:59:59
+start_date: 2025-06-30 11:00:00
+end_date:   2025-08-26 14:59:59
 published: false        # 검증 후 true
 
 # ---------- Leaderboard ----------
@@ -37,8 +37,8 @@ challenge_phases:
     max_submissions_per_day: 5
     max_submissions: 50
     max_concurrent_submissions_allowed: 3
-    start_date: 2025-06-30 20:00:00
-    end_date:   2025-08-26 23:59:59
+    start_date: 2025-06-30 11:00:00
+    end_date:   2025-08-26 14:59:59
     test_annotation_file: annotations/dummy.zip
     codename: main
     is_submission_public: true
