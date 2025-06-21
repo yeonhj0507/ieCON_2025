@@ -1,0 +1,74 @@
+title: ieCON2025
+short_description: 수요예측 및 생산계획 최적화
+description: templates/description.html
+evaluation_details: templates/evaluation_details.html
+terms_and_conditions: templates/terms_and_conditions.html
+image: logo.jpg
+submission_guidelines: templates/submission_guidelines.html
+
+evaluation_script: evaluation_script.zip     # zip 안에 main.py
+remote_evaluation: false
+
+start_date: 2025-06-30 20:00:00
+end_date:   2025-08-26 23:59:59
+published: false        # 검증 후 true
+
+# ---------- Leaderboard ----------
+leaderboard:
+  - id: 1
+    schema:
+      {
+        "labels": ["MAE_Public", "MAE_Private"],
+        "default_order_by": "MAE_Private",
+        "metadata": {
+          "MAE_Public":  {"sort_ascending": true, "description": "Val split MAE"},
+          "MAE_Private": {"sort_ascending": true, "description": "Hidden Test split MAE"}
+        }
+      }
+
+# ---------- Phase (하나) ----------
+challenge_phases:
+  - id: 1
+    name: Main Phase
+    description: templates/challenge_phase_1_description.html
+    leaderboard_public: true
+    is_public: true
+    is_active: true
+    max_submissions_per_day: 5
+    max_submissions: 50
+    max_concurrent_submissions_allowed: 3
+    start_date: 2025-06-30 20:00:00
+    end_date:   2025-08-26 23:59:59
+    test_annotation_file: data/dummy.txt
+    codename: main
+    is_submission_public: true
+    allowed_submission_file_types: ".csv"
+
+# ---------- Data splits ----------
+dataset_splits:
+  - id: 1
+    name: Val Split
+    codename: val_split
+  - id: 2
+    name: Test Split
+    codename: test_split
+
+# ---------- Phase-Split 매핑 ----------
+challenge_phase_splits:
+  - challenge_phase_id: 1
+    leaderboard_id:      1
+    dataset_split_id:    1        # Val
+    visibility:          1        # Public 열
+    leaderboard_decimal_precision: 4
+    is_leaderboard_order_descending: false
+    show_execution_time: false
+    show_leaderboard_by_latest_submission: true
+
+  - challenge_phase_id: 1
+    leaderboard_id:      1
+    dataset_split_id:    2        # Test
+    visibility:          3        # Private 열 (참가자에게 숨김)
+    leaderboard_decimal_precision: 4
+    is_leaderboard_order_descending: false
+    show_execution_time: false
+    show_leaderboard_by_latest_submission: true
