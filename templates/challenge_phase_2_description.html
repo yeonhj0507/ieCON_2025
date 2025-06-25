@@ -1,1 +1,23 @@
-"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
+<!DOCTYPE html><html lang="ko"><head>
+<meta charset="UTF-8" /><title>Phase 2 – 생산·물류 최적화</title></head><body>
+<section>
+  <h1>Phase 2 : Integrated Production & Logistics Planning</h1>
+
+  <h2>목표</h2>
+  Phase 1 예측치와 제약 조건(3-A ~ 3-H)을 모두 지켜
+  2018-2024 기간 총비용을 최소화하는 주간 생산·운송·재고 계획 제출
+
+  <h2>제출 파일</h2>
+  <code>plan_submission_template.csv</code> 수정 + 코드 전부 ZIP
+
+  <h2>제약 핵심</h2>
+  <ul>
+    <li>공장·창고 ≤ 15 (도시당 1)</li>
+    <li>“구간-요일-모드” 4주 고정, 변경 수수료 5 %</li>
+    <li>Fill-Rate ≥ 95 %</li>
+    <li>환경부담금 : 200 USD/t (올림)</li>
+  </ul>
+
+  <h2>평가</h2>
+  총비용 = 건설 + 생산 + 노무 + 운송 + 재고 + 품절 + CO₂ + 모드변경 수수료
+</section></body></html>
