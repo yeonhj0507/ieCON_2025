@@ -1,1 +1,32 @@
-<p>Submit any blank file here to see a random number generated for your submission. If you get lucky, you might reach the top of the leaderboard.</p>
+<!DOCTYPE html><html lang="ko"><head>
+<meta charset="UTF-8" /><title>제출 가이드라인</title></head><body>
+<section>
+
+  <h1>공통 제출 규칙</h1>
+  <ul>
+    <li>하나의 ZIP 파일에 <code>forecast.csv</code>, <code>plan.csv</code>, 코드·README 포함</li>
+    <li>모든 코드 : .py (Jupyter .ipynb 업로드 불가)</li>
+    <li><code>requirements.txt</code> 필수 (poetry 권장)</li>
+    <li>Random Seed 고정</li>
+  </ul>
+
+  <h2>① 수요 예측 (<code>forecast_submission_template.csv</code>)</h2>
+  <ul>
+    <li><code>mean</code> 열만 채움 — 정수, 소수 입력 시 올림</li>
+    <li>헤더·행 순서 변경 금지</li>
+    <li>하루 2회 제출</li>
+  </ul>
+
+  <h2>② 생산·물류 계획 (<code>plan_submission_template.csv</code>)</h2>
+  <ul>
+    <li>수정 열 : <code>production_qty</code>, <code>ot_qty</code>,
+        <code>ship_qty</code>, <code>to_warehouse</code>, <code>mode</code></li>
+    <li>주차 범위 : 2018-01-08 – 2024-12-30 (모두 포함)</li>
+    <li>정수 필드 : 올림(ceil), 음수 → 0</li>
+    <li><strong>제출 한도 : 하루 1회 / 월 20회 / 총 40회</strong></li>
+  </ul>
+
+  <h2>평가 서버 환경</h2>
+  <!-- TODO: CPU/RAM/시간 제한 명시 또는 삭제 -->
+
+</section></body></html>
