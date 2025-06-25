@@ -1,74 +1,107 @@
-title: ieCON2025
-short_description: 수요예측 및 생산계획 최적화
+title: CoolDrinx Global Supply-Chain Challenge
+short_description: 3-month demand-forecast & supply-chain optimization contest
 description: templates/description.html
 evaluation_details: templates/evaluation_details.html
 terms_and_conditions: templates/terms_and_conditions.html
-image: logo.jpg
+image: logo.jpg                # 로고 확정 전, 파일만 placeholder
 submission_guidelines: templates/submission_guidelines.html
+leaderboard_description: 통합 점수(수요예측 40 % + 총비용 60 %) 기준 리더보드
+evaluation_script: evaluation_script.zip
+remote_evaluation: False
 
-evaluation_script: evaluation_script.zip     # zip 안에 main.py
-remote_evaluation: false
+# 전체 대회 기간
+start_date: 2025-06-30 00:00:00
+end_date:   2025-08-26 23:59:59
+published: True
 
-start_date: 2025-06-30 11:00:00
-end_date:   2025-08-26 14:59:59
-published: false        # 검증 후 true
+tags:
+  - supply-chain
+  - demand-forecasting
+  - optimization
+  - operations-research
 
-# ---------- Leaderboard ----------
+# ───────── Leaderboard ─────────
 leaderboard:
   - id: 1
-    schema:
+    schema: |
       {
-        "labels": ["MAE_Public", "MAE_Private"],
-        "default_order_by": "MAE_Private",
+        "labels": ["WAPE(%)", "TotalCost(USD)", "WeightedScore"],
+        "default_order_by": "WeightedScore",
         "metadata": {
-          "MAE_Public":  {"sort_ascending": true, "description": "Val split MAE"},
-          "MAE_Private": {"sort_ascending": true, "description": "Hidden Test split MAE"}
+          "WAPE(%)": {
+            "sort_ascending": true,
+            "description": "Phase 1 수요예측 지표(WAPE)"
+          },
+          "TotalCost(USD)": {
+            "sort_ascending": true,
+            "description": "Phase 2 총비용"
+          },
+          "WeightedScore": {
+            "sort_ascending": false,
+            "description": "0.4×Phase1 + 0.6×Phase2"
+          }
         }
       }
 
-# ---------- Phase (하나) ----------
+# ───────── Challenge Phases ─────────
 challenge_phases:
   - id: 1
-    name: Main Phase
+    name: Phase 1 – Demand Forecast
     description: templates/challenge_phase_1_description.html
-    leaderboard_public: true
-    is_public: true
-    is_active: true
-    max_submissions_per_day: 5
-    max_submissions: 50
+    leaderboard_public: False          # 2023년 구간만 공개
+    is_public: True
+    is_active: True
+    start_date: 2025-06-30 00:00:00    # TODO: 수정 가능
+    end_date:   2025-07-25 23:59:59    # TODO: 확정 필요
+    max_submissions_per_day: 2
+    max_submissions_per_month: 60
+    max_submissions: 120
     max_concurrent_submissions_allowed: 3
-    start_date: 2025-06-30 11:00:00
-    end_date:   2025-08-26 14:59:59
-    test_annotation_file: annotations/dummy.zip
-    codename: main
-    is_submission_public: true
+    test_annotation_file: annotations/test_annotations_devsplit.json
+    codename: demand
     allowed_submission_file_types: ".csv"
 
-# ---------- Data splits ----------
+  - id: 2
+    name: Phase 2 – Production & Logistics Plan
+    description: templates/challenge_phase_2_description.html
+    leaderboard_public: True
+    is_public: True
+    is_active: True
+    start_date: 2025-07-26 00:00:00    # TODO: 확정 필요
+    end_date:   2025-08-26 23:59:59
+    max_submissions_per_day: 1
+    max_submissions_per_month: 20
+    max_submissions: 40
+    max_concurrent_submissions_allowed: 3
+    test_annotation_file: annotations/test_annotations_testsplit.json
+    codename: plan
+    allowed_submission_file_types: ".csv"
+
+# ───────── Dataset Splits ─────────
 dataset_splits:
   - id: 1
-    name: Val Split
-    codename: val_split
+    name: Public Eval Split (2023)
+    codename: pub_eval
   - id: 2
-    name: Test Split
-    codename: test_split
+    name: Private Eval Split (2024)
+    codename: priv_eval
 
-# ---------- Phase-Split 매핑 ----------
+# ───────── Phase ↔ Split ─────────
 challenge_phase_splits:
   - challenge_phase_id: 1
-    leaderboard_id:      1
-    dataset_split_id:    1        # Val
-    visibility:          1        # Public 열
-    leaderboard_decimal_precision: 4
-    is_leaderboard_order_descending: false
-    show_execution_time: false
-    show_leaderboard_by_latest_submission: true
+    leaderboard_id: 1
+    dataset_split_id: 1
+    visibility: 1
+    leaderboard_decimal_precision: 3
+    is_leaderboard_order_descending: False
+    show_execution_time: True
+    show_leaderboard_by_latest_submission: True
 
-  - challenge_phase_id: 1
-    leaderboard_id:      1
-    dataset_split_id:    2        # Test
-    visibility:          3        # Private 열 (참가자에게 숨김)
-    leaderboard_decimal_precision: 4
-    is_leaderboard_order_descending: false
-    show_execution_time: false
-    show_leaderboard_by_latest_submission: true
+  - challenge_phase_id: 2
+    leaderboard_id: 1
+    dataset_split_id: 2
+    visibility: 1
+    leaderboard_decimal_precision: 2
+    is_leaderboard_order_descending: False
+    show_execution_time: True
+    show_leaderboard_by_latest_submission: True
