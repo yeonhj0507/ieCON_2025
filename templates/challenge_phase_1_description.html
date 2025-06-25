@@ -1,1 +1,20 @@
-<p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
+<!DOCTYPE html><html lang="ko"><head>
+<meta charset="UTF-8" /><title>Phase 1 – 수요 예측</title></head><body>
+<section>
+  <h1>Phase 1 : Demand Forecasting</h1>
+
+  <h2>목표</h2>
+  2018-2022 데이터로 학습하여 2023-2024 날짜·SKU·창고별 수요를 예측합니다.
+
+  <h2>데이터</h2>
+  <ul>
+    <li><code>demand_train.db</code> — 과거 5 년 판매 기록</li>
+    <li><code>price_promo_train.csv</code>, <code>weather.csv</code>, <code>currency.csv</code> 등 보조 변수</li>
+    <li>예측 대상 : <code>demand_eval_dates.csv</code> (공개) + <code>demand_test_dates.csv</code> (비공개)</li>
+  </ul>
+
+  <h2>평가 지표 : WAPE</h2>
+
+  <h2>제출 형식</h2>
+  <code>forecast_submission_template.csv</code> 의 <code>mean</code> 열만 채워 ZIP에 포함
+</section></body></html>
