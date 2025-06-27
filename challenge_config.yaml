@@ -42,7 +42,7 @@ challenge_phases:
 
 
 
-    max_concurrent_submissions_allowed: 3
+    max_concurrent_submissions_allowed: 10
     start_date: 2025-06-26 00:00:00
     end_date:   2025-08-26 14:59:59
     test_annotation_file: annotations/dummy.zip
