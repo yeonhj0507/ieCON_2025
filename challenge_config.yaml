@@ -16,14 +16,19 @@ leaderboard:
   - id: 1
     schema:
       {
-        "labels": ["MAE_Public", "MAE_Private"],
-        "default_order_by": "MAE_Private",
+        "labels": ["WAPE_Public", "WAPE_Private"],
+        "default_order_by": "WAPE_Private",
         "metadata": {
-          "MAE_Public":  {"sort_ascending": true, "description": "Val split MAE"},
-          "MAE_Private": {"sort_ascending": true, "description": "Hidden Test split MAE"}
+          "WAPE_Public": {
+            "sort_ascending": true,
+            "description": "Validation WAPE (lower is better)"
+          },
+          "WAPE_Private": {
+            "sort_ascending": true,
+            "description": "Test WAPE (lower is better)"
+          }
         }
       }
-
 # ---------- Phase (하나) ----------
 challenge_phases:
   - id: 1
@@ -59,7 +64,7 @@ challenge_phase_splits:
   - challenge_phase_id: 1
     leaderboard_id:      1
     dataset_split_id:    1        # Val
-    visibility:          1        # Public 열
+    visibility:          1        # Public
     leaderboard_decimal_precision: 4
     is_leaderboard_order_descending: false
     show_execution_time: false
@@ -68,7 +73,7 @@ challenge_phase_splits:
   - challenge_phase_id: 1
     leaderboard_id:      1
     dataset_split_id:    2        # Test
-    visibility:          3        # Private 열 (참가자에게 숨김)
+    visibility:          3        # Private (숨김)
     leaderboard_decimal_precision: 4
     is_leaderboard_order_descending: false
     show_execution_time: false
