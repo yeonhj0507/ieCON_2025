@@ -15,16 +15,21 @@ def evaluate(test_annotation_file, user_submission_file, phase_codename, **kwarg
     wape = (merged["abs_error"].sum() / total_gt * 100) if total_gt != 0 else float("inf")
 
     print(f"Computed WAPE: {wape:.4f}%")
-
     return {
-        "result": [
-            {
-                "split": {
-                    "WAPE": round(wape, 4),
-                }
-            }
-        ],
-        "submission_result": {
-            "WAPE": round(wape, 4),
+      "result": [
+        {
+          "val_split": {
+            "WAPE_Public": round(wape, 4),
+          }
+        },
+        {
+          "test_split": {
+            "WAPE_Private": round(wape, 4),
+          }
         }
+      ],
+      "submission_result": {
+        "WAPE_Public": round(wape, 4),
+        "WAPE_Private": round(wape, 4),
+      }    
     }
