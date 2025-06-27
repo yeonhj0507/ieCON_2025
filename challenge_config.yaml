@@ -37,7 +37,7 @@ challenge_phases:
     leaderboard_public: true
     is_public: true
     is_active: true
-    max_submissions_per_day: 5
+    max_submissions_per_day: 10
     max_submissions: 50
 
 
