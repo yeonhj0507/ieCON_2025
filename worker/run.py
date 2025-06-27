@@ -52,7 +52,6 @@ def run():
         annotation_file_path,
         user_submission_file_path,
         challenge_phase,
-        submission_metadata=submission_metadata,
     )
     print("Evaluated Successfully!")
 
